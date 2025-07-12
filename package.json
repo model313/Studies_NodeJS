@@ -1,0 +1,22 @@
+{
+  "name": "studies_nodejs",
+  "version": "1.0.0",
+  "description": "I have an upcoming project that requires Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/model313/Studies_NodeJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/model313/Studies_NodeJS/issues"
+  },
+  "homepage": "https://github.com/model313/Studies_NodeJS#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
