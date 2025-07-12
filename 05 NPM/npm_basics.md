@@ -59,6 +59,7 @@ nodemon: restarts node app whenever changes are made
 
 ## You can also add nodemon options
 - package.json
+Add "npm start", "npm dev" scripts
 ``` 
 "scripts": {
 	"start": "node app.js",
@@ -66,12 +67,14 @@ nodemon: restarts node app whenever changes are made
 }
 ```
 OR
+Add "npm start" script
 ``` 
 "scripts": {
 	"start": "nodemon app.js"
 }
 ```
 
+- Note that these scripts will consider the **root** as its base directory
 # Uninstall
 ```npm uninstall <packageName>```
 
