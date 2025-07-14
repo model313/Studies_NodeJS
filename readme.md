@@ -6,7 +6,7 @@ This repository contains my personal study notes, practice code, and mini-projec
 
 I have begun my studies by watching John Smilga's course on a Youtube channel called 'freeCodeCamp.org'. Highly recommended.
 
-Most of this code will be reference notes based off John Smilgas course. 
+Most of this code will be reference notes based off John Smilgas course. He also has a repo that has all of the materials.
 
 https://www.youtube.com/watch?v=Oe421EPjeBE
 
