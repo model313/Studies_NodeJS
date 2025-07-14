@@ -7,6 +7,8 @@ const homeStyles = readFileSync('./navbar-app/styles.css')
 const homeImage = readFileSync('./navbar-app/logo.svg')
 const homeLogic = readFileSync('./navbar-app/browser-app.js')
 
+// As you can see, this controller method can get pretty long
+// There are better ways to handle resources
 const server = http.createServer((req, res) => {
   // console.log(req.method)
   const url = req.url
