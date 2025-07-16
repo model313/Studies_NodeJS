@@ -1,23 +1,23 @@
 const express = require('express')
 const app = express()
-// Third party middleware
-const morgan = require('morgan')
+// Seperate logger module
 const logger = require('./04 Middleware/logger')
-const authorize = require('./04 Middleware/authorize')
 
-app.use(morgan('tiny'))
+// Utilize app.use to apply middleware
+// app.use(logger)          // Order matters
+app.use('/api', logger)     // Applies to /api only    
 
 app.get('/', (req, res) => {
     res.send('Home')
 })
 app.get('/about', (req, res) => {
-    console.log(req.user)
     res.send('About')
 })
 app.get('/api/products', (req, res) => {
     res.send('Products')
 })
 app.get('/api/items', (req, res) => {
+    console.log(req.user)
     res.send('Items')
 })
 

@@ -47,6 +47,7 @@ app.get('/api/products/:productID/reviews/:reviewID', (req, res) => {
 
 
 // QUERY PARAMETERS
+// e.g. ?limit=2
 
 // http://localhost:8080/api/v1/query?limit=2
 // http://localhost:8080/api/v1/query?search=a
