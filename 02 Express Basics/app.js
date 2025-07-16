@@ -18,6 +18,8 @@ app.get('/api/products', (req, res) => {
     res.json(newProducts)
 })
 
+// ROUTE PARAMETERS
+
 // Product view
 // :productID = Route parameter 
 app.get('/api/products/:productID', (req, res) => {
@@ -37,29 +39,39 @@ app.get('/api/products/:productID', (req, res) => {
     return res.json(singleProduct)
 })
 
+// Multiple route parameters
 app.get('/api/products/:productID/reviews/:reviewID', (req, res) => {
-    console.log(req.params)
+    console.log(req.params)                // -> { productID: '1', reviewID: 'abc' }
     res.send('hello world')
 })
 
-app.get('/api/v1/query', (req, res) => {
-  // console.log(req.query)
-  const { search, limit } = req.query
-  let sortedProducts = [...products]
 
-  if (search) {
-    sortedProducts = sortedProducts.filter((product) => {
-      return product.name.startsWith(search)
+// QUERY PARAMETERS
+
+// http://localhost:8080/api/v1/query?limit=2
+// http://localhost:8080/api/v1/query?search=a
+// http://localhost:8080/api/v1/query?search=b
+app.get('/api/v1/query', (req, res) => {
+    // console.log(req.query)
+    const { search, limit } = req.query
+    let sortedProducts = [...products]
+
+    if (search) {
+        sortedProducts = sortedProducts.filter((product) => {
+        return product.name.startsWith(search)
     })
-  }
-  if (limit) {
-    sortedProducts = sortedProducts.slice(0, Number(limit))
-  }
-  if (sortedProducts.length < 1) {
-    // res.status(200).send('no products matched your search');
-    return res.status(200).json({ sucess: true, data: [] })
-  }
-  res.status(200).json(sortedProducts)
+    }
+
+    if (limit) {
+        sortedProducts = sortedProducts.slice(0, Number(limit))
+    }
+
+    if (sortedProducts.length < 1) {
+        // res.status(200).send('no products matched your search');
+        return res.status(200).json({ success: true, data: [] })
+    }
+
+    res.status(200).json(sortedProducts)
 })
 
 app.listen(8080, () => {
