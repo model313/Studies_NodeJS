@@ -1,3 +1,4 @@
+// Move to 02 Express Basics before running
 const express = require('express')
 const app = express()
 
