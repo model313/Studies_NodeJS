@@ -4,8 +4,6 @@
 
 A simple yet effective Task Manager API that demonstrates the core principles of building a RESTful backend with Node.js, Express, and a cloud database.
 
----
-
 ## 🚀 Project Overview
 
 This app enables users to manage their daily tasks through a clean and intuitive interface (front-end provided).
@@ -17,7 +15,6 @@ This app enables users to manage their daily tasks through a clean and intuitive
 - Delete tasks from the list
 - Built with full CRUD functionality
 
----
 
 ## 🛠️ Tech Stack
 
@@ -27,7 +24,6 @@ This app enables users to manage their daily tasks through a clean and intuitive
 - Postman (for API testing)
 - HTML/CSS front-end (provided in the course)
 
----
 
 ## 📚 Learning Focus
 
@@ -36,7 +32,6 @@ This app enables users to manage their daily tasks through a clean and intuitive
 - Structuring an Express project
 - Implementing basic API routes with CRUD operations
 
----
 
 ## 💡 How to Run
 
@@ -55,7 +50,6 @@ This app enables users to manage their daily tasks through a clean and intuitive
 
 Please note that it is crucial to navigate to the specified folder **before** running npm commands!
 
----
 
 ## 📦 Project Status
 
