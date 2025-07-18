@@ -3,8 +3,7 @@ Middleware in Express.js refers to functions that have access to the request obj
 
 Middleware helps separate concerns and manage complex routes efficiently.
 
-Request >> Middleware >> Response
-![[Pasted image 20250716175902.png]]
+```Request >> Middleware >> Response```
 # Types of Middleware
 1. Self-made
 2. Express.js built-in
