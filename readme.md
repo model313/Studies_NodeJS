@@ -6,9 +6,13 @@ This repository contains my personal study notes, practice code, and mini-projec
 
 I have begun my studies by watching John Smilga's course on a Youtube channel called 'freeCodeCamp.org'. Highly recommended.
 
-Most of this code will be reference notes based off John Smilgas course. He also has a repo that has all of the materials.
+Most of this code will be reference notes based off John Smilga's course. He also has a repo that has all of the materials.
 
+The first video covers the basics of Node and Express, and ends with a basic MVC layout.
 https://www.youtube.com/watch?v=Oe421EPjeBE
+
+The second video moves on to more concrete examples. Four mini-projects, to be specific. If you like examples, this is the video for you.
+https://www.youtube.com/watch?v=qwfE7fSVaZM
 
 ## 📚 What’s Included
 
