@@ -11,7 +11,7 @@ This app enables users to manage their daily tasks through a clean and intuitive
 ### ✨ Features
 - View all active tasks
 - Add new tasks to the list
-- Mark tasks as complete
+- Edit active tasks by updating the name or status
 - Delete tasks from the list
 - Built with full CRUD functionality
 
@@ -56,8 +56,6 @@ Please note that it is crucial to navigate to the specified folder **before** ru
 ✅ Completed core functionality  
 🧪 Tested using Postman  
 📚 Used for learning and reference
-
----
 
 ## 🙌 Credits
 
