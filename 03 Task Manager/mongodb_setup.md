@@ -20,7 +20,7 @@
 7. Copy connection string
 	1. Database > Clusters > "Connect" button
 	2. "Connect your application" > Drivers
-	3. Copy connection string to code > add to separate file like 'connect.js'
+	3. Copy connection string to code > add to .env
 
 # Structure
 **Database > Collections > Documents**
@@ -46,3 +46,17 @@
 - Simplified workflow
 
 `npm install mongoose`
+
+
+# .env?
+	Secure storage of sensitive information
+- Omit from Git to avoid sharing information to Github
+- Store connection string here
+- Requires dotenv dependency: `npm install dotenv`
+- Use app.js to access .env
+
+
+# Additional Info
+- Both Express and Mongoose use async functions
+- It is essential to connect to the DB, **then** start the server
+- Use try/catch + async/await to make the app wait for a successful DB connection (returned promise)
