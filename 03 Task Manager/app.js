@@ -2,7 +2,8 @@ const express = require('express')
 const app = express()
 // app.js > routes > controllers
 const tasks = require('./routes/tasks')
-
+const connectDB = require('./db/connect')
+require('dotenv').config()
 
 // Middleware
 app.use(express.json())
@@ -24,7 +25,15 @@ app.get('/hello', (req, res) => {
 app.use('/api/v1/tasks', tasks)
 
 
-
-// Server 
+// DB > Server (order matters)
 const port = 8080
-app.listen(port, console.log(`Server is listening to port: ${port}`))
+const start = async () => {
+    try {
+        await connectDB(process.env.MONGO_URI)
+        app.listen(port, console.log(`Server is listening to port: ${port}`))
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+start()
