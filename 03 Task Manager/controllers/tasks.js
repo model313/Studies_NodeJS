@@ -1,13 +1,16 @@
 // Tasks Controller
 
+const Task = require('../models/task')
+
 // Gets all active tasks
 const getAllTasks = (req, res) => {
     res.send('All Tasks')
 }
 
 // Create task
-const createTask = (req, res) => {
-    res.json(req.body)
+const createTask = async (req, res) => {
+    const task = await Task.create(req.body)
+    res.status(201).json({task})
 }
 
 // Get single task
