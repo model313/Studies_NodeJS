@@ -6,6 +6,7 @@ const connectDB = require('./db/connect')
 require('dotenv').config()
 
 // Middleware
+app.use(express.static('./public'))
 app.use(express.json())
 
 
@@ -18,10 +19,6 @@ app.use(express.json())
  * - Update task (patch instead of put)
  * - Delete task
  */
-app.get('/hello', (req, res) => {
-    res.send('Task Manager App')
-})
-
 app.use('/api/v1/tasks', tasks)
 
 
