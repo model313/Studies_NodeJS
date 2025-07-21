@@ -6,7 +6,12 @@ const Task = require('../models/task')
 const getAllTasks = async (req, res) => {
     try {
         const tasks = await Task.find({})
+
         res.status(200).json({tasks})
+
+        // Reponse options
+        // res.status(200).json({tasks, count: tasks.length})
+        // res.status(200).json({success: true, data: {tasks, nbHits: tasks.length}})
     } catch (error) {
         res.status(500).json({msg: error})
     }
@@ -75,6 +80,12 @@ const updateTask = async (req, res) => {
         res.status(500).json({msg: error})
     }
 }
+
+/**
+ * PUT vs PATCH requests
+ * - put: will update omitted values by removing them
+ * - patch: will only update matching values, and ignore omitted values
+ */
 
 
 // app.js > routes > controllers
