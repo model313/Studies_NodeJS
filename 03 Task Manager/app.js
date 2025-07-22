@@ -27,7 +27,7 @@ app.use(errorHandler)
 
 
 // DB > Server (order matters)
-const port = 8080
+const port = process.env.PORT || 8080
 const start = async () => {
     try {
         await connectDB(process.env.MONGO_URI)
