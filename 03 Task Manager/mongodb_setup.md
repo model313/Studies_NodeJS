@@ -60,3 +60,8 @@
 - Both Express and Mongoose use async functions
 - It is essential to connect to the DB, **then** start the server
 - Use try/catch + async/await to make the app wait for a successful DB connection (returned promise)
+
+
+## DEP0170 URL Parser DeprecationWarning?
+- John Smilgas uses an older version of Mongoose (5.11.10)
+- Use 'npm install mongoose@latest' to install the latest version (My repo uses 8.16.4)
