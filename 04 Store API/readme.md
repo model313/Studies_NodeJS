@@ -10,6 +10,7 @@
 
 ### ✨ Features
 - (features)
+- Using prebuilt error handling package (ExpressJS Async Errors)
 
 
 ## 🛠️ Tech Stack
