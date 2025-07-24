@@ -5,6 +5,8 @@ const getAllProducts = async (req, res) => {
 }
 
 const getAllProductsStatic = async (req, res) => {
+    // Express Async Error package uses throw instread of next()
+    throw new Error('testing async errors')
     res.status(200).json({msg: 'Products Testing'})
 }
 
