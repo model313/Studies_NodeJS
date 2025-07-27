@@ -2,30 +2,38 @@
 
 > Mini project built as part of John Smilga's Node.js & Express course.
 
-(Brief explanation on project here)
+A product catalog API that supports filters, sorting, and pagination using Node.js, Express, and MongoDB.
 
 ## 🚀 Project Overview
 
-(What this project is)
+This project provides a backend API to serve product data from MongoDB in JSON format to any front-end. It focuses on implementing flexible query functionality such as filtering, sorting, field selection, and pagination for efficient data handling.
 
 ### ✨ Features
-- (features)
-- Using prebuilt error handling package (ExpressJS Async Errors)
 
+- Return product data in JSON format
+- Filter by product name, company, or featured status (boolean)
+- Apply numeric filters (e.g., price and rating ranges)
+- Sort by any field (e.g., price, rating)
+- Select specific fields to include/exclude in the response
+- Paginate results with customizable limit and page number
+- Built-in async error handling using `express-async-errors`
 
 ## 🛠️ Tech Stack
 
 - Node.js
 - Express.js
-- MongoDB Atlas (cloud database)
-- Postman (for API testing)
-- HTML/CSS front-end (provided in the course)
-
+- Mongoose
+- MongoDB Atlas (cloud-hosted)
+- Postman (for testing API endpoints)
 
 ## 📚 Learning Focus
 
-
-
+- Structuring RESTful APIs with Express
+- Implementing advanced query parameters in API routes
+- Working with Mongoose operators for filtering and sorting
+- Using middleware for error handling and async operations
+- Organizing project files for scalability and readability
+- Handling environment variables securely with dotenv
 
 ## 💡 How to Run
 
@@ -43,7 +51,6 @@
 6. Open the front-end in your browser and interact with the API!
 
 Please note that it is crucial to navigate to the specified folder **before** running npm commands!
-
 
 ## 📦 Project Status
 
