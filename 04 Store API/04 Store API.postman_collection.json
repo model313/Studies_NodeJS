@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "986ad0f3-f799-4706-a235-2f7bf7795381",
+		"name": "04 Store API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46837313",
+		"_collection_link": "https://seanpark-9720607.postman.co/workspace/Sean-Park's-Workspace~0eb7b742-0dff-40c6-8f06-65bc2e5243d5/collection/46837313-986ad0f3-f799-4706-a235-2f7bf7795381?action=share&source=collection_link&creator=46837313"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/products",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "featured",
+							"value": "false",
+							"disabled": true
+						},
+						{
+							"key": "company",
+							"value": "ikea",
+							"disabled": true
+						},
+						{
+							"key": "rating",
+							"value": "4.5",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "emp",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "name",
+							"disabled": true
+						},
+						{
+							"key": "fields",
+							"value": "company,rating",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "numericFilters",
+							"value": "price=25,rating<=4",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
