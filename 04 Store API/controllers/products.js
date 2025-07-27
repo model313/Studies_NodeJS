@@ -85,16 +85,6 @@ const getAllProducts = async (req, res) => {
     res.status(200).json({ count: products.length, products })
 }
 
-const getAllProductsStatic = async (req, res) => {
-    const products = await Product.find({
-        name: 'vase table'
-    })
-
-    // Express Async Error package uses throw instread of next()
-    // throw new Error('testing async errors')
-    res.status(200).json({ products })
-}
-
 module.exports = {
     getAllProducts,
     getAllProductsStatic
