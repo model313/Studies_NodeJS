@@ -48,9 +48,11 @@ This project provides a backend API to serve product data from MongoDB in JSON f
 5. Start the server  
     `npm start`
     
-6. Open the front-end in your browser and interact with the API!
+6. Use Postman and interact with the API!
 
 Please note that it is crucial to navigate to the specified folder **before** running npm commands!
+
+If you want, you can **import the Postman collection** that I provided in this folder. The get request includes query parameters you can add and remove with a single click.
 
 ## 📦 Project Status
 
