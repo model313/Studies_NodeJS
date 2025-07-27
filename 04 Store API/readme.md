@@ -1,4 +1,4 @@
-# Store API
+# 🪑 Store API
 
 > Mini project built as part of John Smilga's Node.js & Express course.
 
