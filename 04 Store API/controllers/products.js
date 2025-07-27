@@ -3,7 +3,7 @@
 const Product = require('../models/product')
 
 const getAllProducts = async (req, res) => {
-    const {featured, company, name, sort, fields} = req.query
+    const { featured, company, name, sort, fields, numericFilters } = req.query
     const queryObject = {}
 
     // Search filter
@@ -14,8 +14,39 @@ const getAllProducts = async (req, res) => {
         queryObject.company = company
     }
     if (name) {
-        queryObject.name = {$regex: name, $options: 'i'}
+        queryObject.name = { $regex: name, $options: 'i' }
     }
+
+
+    // Numerical range filter (rating, price)
+    if (numericFilters) {
+        const operatorMap = {
+            '>': '$gt',
+            '>=': '$gte',
+            '=': '$eq',
+            '<': '$lt',
+            '<=': '$lte'
+        }
+        // const regEx = /\b(<|>|>=|=|<|<=)\b/g    // Regular expression (apparently this is wrong..? <= will never be read)
+        const regEx = /\b(>=|<=|>|<|=)\b/g         // Better option (original still works, but it might not work on other languages)
+
+        let filters = numericFilters.replace(
+          regEx,
+          (match) => `-${operatorMap[match]}-`
+        )
+
+        // Result example: filters = price-$lt-40,rating-$lte-4
+
+        const options = ['price', 'rating']
+        filters = filters.split(',').forEach((item) => {        // Split into price and rating
+            const [field, operator, value] = item.split('-')    // Split into three values
+            if(options.includes(field)){
+                queryObject[field] = {[operator]: Number(value)}// Map to queryObject
+            }
+        })
+    }
+
+
 
     console.log(queryObject);
 
@@ -25,7 +56,7 @@ const getAllProducts = async (req, res) => {
     // Just putting in the req.query in find() works
     // BUT we can not handle unrelated query params
     // const products = await Product.find(req.query)
-  
+
 
     // Sort result
     if (sort) {
@@ -34,12 +65,12 @@ const getAllProducts = async (req, res) => {
     } else {
         result = result.sort('createdAt')
     }
-    
+
     // Field filter  (hide/show data fields)
     if (fields) {
         const fieldsList = fields.split(',').join(' ')
         result = result.select(fieldsList)
-    } 
+    }
 
     // Pagination
     const page = Number(req.query.page) || 1        // 1: Default
@@ -48,8 +79,10 @@ const getAllProducts = async (req, res) => {
 
     result = result.skip(skip).limit(limit)
 
+
+
     const products = await result
-    res.status(200).json({count: products.length, products})
+    res.status(200).json({ count: products.length, products })
 }
 
 const getAllProductsStatic = async (req, res) => {
@@ -59,7 +92,7 @@ const getAllProductsStatic = async (req, res) => {
 
     // Express Async Error package uses throw instread of next()
     // throw new Error('testing async errors')
-    res.status(200).json({products})
+    res.status(200).json({ products })
 }
 
 module.exports = {
