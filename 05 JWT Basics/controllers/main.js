@@ -1,6 +1,17 @@
 // JWT Controller
 
+/** 
+ * 1. Check username, password in post request
+ * 2. If exists, create new JWT
+ * 3. Send token back to front-end
+ * 4. Only request with JWT can access /dashboard
+*/
+
 const login = async (req, res) => {
+  const {username, password} = req.body
+
+  // User validation (usually via MongoDB, Joi)
+  
   res.send("Fake Login/Register/Signup Route");
 };
 
