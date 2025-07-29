@@ -5,7 +5,10 @@ const router = express.Router()
 
 const {login, dashboard} = require('../controllers/main')
 
-router.route('/dashboard').get(dashboard)
+const authMiddleware = require('../middleware/auth')
+// Usually group restricted endpoints 
+
+router.route('/dashboard').get(authMiddleware, dashboard)
 router.route('/login').post(login)
 
 module.exports = router
