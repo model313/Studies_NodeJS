@@ -7,10 +7,17 @@
  * 4. Only request with JWT can access /dashboard
 */
 
+const CustomAPIError = require('../errors/custom-error')
+const jwt = require('jsonwebtoken')
+
 const login = async (req, res) => {
   const {username, password} = req.body
 
-  // User validation (usually via MongoDB, Joi)
+  // User validation (usually via Mongoose / Joi)
+  // If input is empty
+  if(!username || !password) {
+    throw new CustomAPIError('Please provide email and password', 400)
+  }
   
   res.send("Fake Login/Register/Signup Route");
 };
