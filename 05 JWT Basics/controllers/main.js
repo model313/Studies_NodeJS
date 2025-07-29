@@ -18,8 +18,16 @@ const login = async (req, res) => {
   if(!username || !password) {
     throw new CustomAPIError('Please provide email and password', 400)
   }
+
+  // User ID placeholder (usually called from DB)
+  const id = new Date().getDate()
+
+  // Light payload is best for performance
+  // Secret key should be long, complex string value
+  const token = jwt.sign({id, username}, process.env.JWT_SECRET, {expiresIn: '30d'})
   
-  res.send("Fake Login/Register/Signup Route");
+  // Return status and token
+  res.status(200).json({msg: 'User Created', token})
 };
 
 const dashboard = async (req, res) => {
