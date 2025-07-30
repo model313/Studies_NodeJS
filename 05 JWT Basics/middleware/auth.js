@@ -1,7 +1,7 @@
 // Auth Middleware
 // This will be called in the router whenever needed
 
-const CustomAPIError = require('../errors/custom-error')
+const { UnauthenticatedError } = require('../errors')
 const jwt = require('jsonwebtoken')
 
 const authenticationMiddleware = async (req, res, next) => {
@@ -14,7 +14,7 @@ const authenticationMiddleware = async (req, res, next) => {
   // Empty/invalid header error
   if(!authHeader || !authHeader.startsWith('Bearer ')) {
     // Should be 401 error with invalid credentials msg
-    throw new CustomAPIError('No token provided', 400)
+    throw new UnauthenticatedError('No token provided')
   }
 
   // Parse authorization header
@@ -31,7 +31,7 @@ const authenticationMiddleware = async (req, res, next) => {
 
     next()
   } catch (error) {
-    throw new CustomAPIError('Not authorized to access this route', 401)
+    throw new UnauthenticatedError('Not authorized to access this route')
   }
 
 
