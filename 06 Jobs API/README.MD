@@ -1,69 +1,54 @@
-#### Setup
+# 🪑 Job API
 
-```bash
-npm install && npm start
-```
+> Mini project built as part of John Smilga's Node.js & Express course.
 
-#### Database Connection
+(Summary)
 
-1. Import connect.js
-2. Invoke in start()
-3. Setup .env in the root
-4. Add MONGO_URI with correct value
+## 🚀 Project Overview
 
-#### Routers
 
-- auth.js
-- jobs.js
 
-#### User Model
+### ✨ Features
 
-Email Validation Regex
 
-```regex
-/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-```
 
-#### Register User
+## 🛠️ Tech Stack
 
-- Validate - name, email, password - with Mongoose
-- Hash Password (with bcryptjs)
-- Save User
-- Generate Token
-- Send Response with Token
+- Node.js
+- Express.js
+- Mongoose
+- MongoDB Atlas (cloud-hosted)
+- Postman (for testing API endpoints)
 
-#### Login User
+## 📚 Learning Focus
 
-- Validate - email, password - in controller
-- If email or password is missing, throw BadRequestError
-- Find User
-- Compare Passwords
-- If no user or password does not match, throw UnauthenticatedError
-- If correct, generate Token
-- Send Response with Token
 
-#### Mongoose Errors
 
-- Validation Errors
-- Duplicate (Email)
-- Cast Error
+## 💡 How to Run
 
-#### Security
+1. Clone the entire repo ('Studies_NodeJS')
+2. Navigate to folder '04 Store API' using the terminal of your choice
+3. Install dependencies 
+    `npm install`
+    
+4. Set up your `.env` file with your MongoDB URI
+    `MONGO_URI=your_mongodb_connection_string`
+    
+5. Start the server  
+    `npm start`
+    
+6. Use Postman and interact with the API!
 
-- helmet
-- cors
-- xss-clean
-- express-rate-limit
+Please note that it is crucial to navigate to the specified folder **before** running npm commands!
 
-Swagger UI
+If you want, you can **import the Postman collection** that I provided in this folder. The get request includes query parameters you can add and remove with a single click.
 
-```yaml
-/jobs/{id}:
-  parameters:
-    - in: path
-      name: id
-      schema:
-        type: string
-      required: true
-      description: the job id
-```
+## 📦 Project Status
+
+✅ Completed core functionality  
+🧪 Tested using Postman  
+📚 Used for learning and reference
+
+## 🙌 Credits
+
+Built as part of [John Smilga’s](https://www.johnsmilga.com/) Node/Express course.
