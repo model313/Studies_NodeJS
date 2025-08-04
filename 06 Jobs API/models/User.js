@@ -1,6 +1,7 @@
 // User Model
 
 const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -26,6 +27,16 @@ const UserSchema = new mongoose.Schema({
     // maxlength: 12,
     // maxlength should be changed/removed if data is encrypted
   }
+})
+
+
+// Password Hashing Pre Middleware
+// Use 'function' instead of '=>' for scope (this)
+UserSchema.pre('save', async function(next) {
+  const salt = await bcrypt.genSalt(10)       // Generates random bytes (default is 10)
+  this.password = await bcrypt.hash(this.password, salt)
+
+  next()
 })
 
 module.exports = mongoose.model('User', UserSchema)
