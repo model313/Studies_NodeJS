@@ -1,9 +1,9 @@
 // Auth Controller (Users)
 
-const User = require("../models/User");
-const { StatusCodes } = require("http-status-codes");
-const { BadRequestError } = require("../errors");
-const jwt = require("jsonwebtoken");
+const User = require("../models/User")
+const { StatusCodes } = require("http-status-codes")
+const { BadRequestError } = require("../errors")
+const jwt = require("jsonwebtoken")
 
 const register = async (req, res) => {
   // Check if data exists
@@ -19,7 +19,7 @@ const register = async (req, res) => {
    * Unpacks all key-value pairs from the tempUser object and passes them as
    * individual properties to User.create()
    */
-  const user = await User.create({ ...req.body });
+  const user = await User.create({ ...req.body })
 
   // JWT
   const token = jwt.sign(
@@ -31,14 +31,14 @@ const register = async (req, res) => {
   // Respond success
   res
     .status(StatusCodes.CREATED)
-    .json({ user: { name: user.getName() }, token });
-};
+    .json({ user: { name: user.getName() }, token })
+}
 
 const login = async (req, res) => {
-  res.send("login");
-};
+  res.send("login")
+}
 
 module.exports = {
   register,
   login,
-};
+}
