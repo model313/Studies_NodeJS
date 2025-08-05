@@ -10,7 +10,7 @@ const connectDB = require('./db/connect')
 const authRouter = require('./routes/auth')
 const jobRouter = require('./routes/jobs')
 
-// error handler
+// Error Handler
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
