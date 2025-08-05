@@ -29,7 +29,9 @@ const register = async (req, res) => {
   )
 
   // Respond success
-  res.status(StatusCodes.CREATED).json({ user: { name: user.name }, token });
+  res
+    .status(StatusCodes.CREATED)
+    .json({ user: { name: user.getName() }, token });
 };
 
 const login = async (req, res) => {

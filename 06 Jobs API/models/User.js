@@ -30,13 +30,19 @@ const UserSchema = new mongoose.Schema({
 })
 
 
-// Password Hashing Pre Middleware
-// Use 'function' instead of '=>' for scope (this)
+// Password Hashing pre middleware
+// Use 'function' instead of '=>' for scope (prevents binding of 'this')
 UserSchema.pre('save', async function(next) {
   const salt = await bcrypt.genSalt(10)       // Generates random bytes (default is 10)
   this.password = await bcrypt.hash(this.password, salt)
 
   next()
 })
+
+
+// Mongoose built-in instance methods
+UserSchema.methods.getName = function () {
+  return this.name
+}
 
 module.exports = mongoose.model('User', UserSchema)
