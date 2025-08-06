@@ -30,7 +30,6 @@ const UserSchema = new mongoose.Schema({
   }
 })
 
-
 // Password Hashing pre middleware
 // Use 'function' instead of '=>' for scope (prevents binding of 'this')
 UserSchema.pre('save', async function(next) {
@@ -46,7 +45,7 @@ UserSchema.methods.createJWT = function () {
     { userId: this._id, name: this.name },
     process.env.JWT_SECRET,
     { expiresIn: process.env.JWT_LIFETIME }
-  );
+  )
 }
 
 module.exports = mongoose.model('User', UserSchema)
