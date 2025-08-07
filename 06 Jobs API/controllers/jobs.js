@@ -1,3 +1,5 @@
+// Jobs Controller
+
 const getAllJobs = async (req, res) => {
   res.send('get all jobs')
 }
