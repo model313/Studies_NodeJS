@@ -28,4 +28,10 @@ const JobSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
+/**
+ * Timestamps
+ * - Mongoose adds a createdAt + updatedAt data field for timestamps
+ * - All timestamps are based on time of server
+ */
+
 module.exports = mongoose.model('Job', JobSchema)
