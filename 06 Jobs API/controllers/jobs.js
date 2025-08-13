@@ -15,13 +15,31 @@ const getAllJobs = async (req, res) => {
 }
 
 const getJob = async (req, res) => {
-  res.send("get job")
+  // Get single job about user with route parameter
+
+  const {
+    user: { userId },
+    params: { id: jobId },
+  } = req
+
+  const job = await Job
+  .findOne({
+    _id: jobId,
+    createdBy: userId,
+  })
+
+  if (!job) {
+    throw new NotFoundError(`No job with id: ${jobId}`)
+  }
+
+  res.status(StatusCodes.OK).json({ job })
 }
 
 const createJob = async (req, res) => {
   // Add user data to req.body for createdBy data field in Jobs schema
   req.body.createdBy = req.user.userId
-  const job = await Job.create(req.body)
+  const job = await Job
+  .create(req.body)
 
   res.status(StatusCodes.CREATED).json({ job })
 }
